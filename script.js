@@ -4,12 +4,12 @@
 			this.container = document.querySelector(container);
 			this.wrapper = this.container.querySelector('.sl-wrapper');
 
-			this.setSlider(this.wrapper);
+			//this.setSlider(this.wrapper, 0);
 
-			setInterval(this.setSlider.bind(this, this.wrapper), 3000)
+			//setInterval(this.setSlider.bind(this, this.wrapper, 200), 3000)
 		}
-		setSlider(wrapper){
-			let left = 0;
+		setSlider(wrapper, start){
+			let left = start;
 			let elems = wrapper.querySelectorAll('.sl-elements');
 
 			for(let i = 0; i < elems.length; i++) {
@@ -19,9 +19,11 @@
 				let elemWIidth = this.elementSize(elems[i]).width;
 
 				left += elemWIidth;
-
 				
 			}
+
+
+
 		}
 
 		getScrollWidth(){
