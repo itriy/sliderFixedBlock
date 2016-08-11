@@ -4,26 +4,46 @@
 			this.container = document.querySelector(container);
 			this.wrapper = this.container.querySelector('.sl-wrapper');
 
-			//this.setSlider(this.wrapper, 0);
+			this.setSlider(this.wrapper);
 
-			//setInterval(this.setSlider.bind(this, this.wrapper, 200), 3000)
+			//setInterval(this.setSlider.bind(this, this.wrapper), 2000)
 		}
-		setSlider(wrapper, start){
-			let left = start;
-			let elems = wrapper.querySelectorAll('.sl-elements');
+		setSlider(wrapper){
 
-			for(let i = 0; i < elems.length; i++) {
-				console.log(left);
-				elems[i].style.left = left + 'px';
+			let firstElem = wrapper.querySelector('.sl-elements');
 
-				let elemWIidth = this.elementSize(elems[i]).width;
+			let start = Date.now(); // сохранить время начала
 
-				left += elemWIidth;
-				
-			}
+			let timer = setInterval(() => {
+			  // вычислить сколько времени прошло из opts.duration
+			  let timePassed = Date.now() - start;
+
+			  firstElem.style.marginLeft = timePassed / 5 + 'px';
+
+			  if (timePassed > 2000) clearInterval(timer);
+
+			}, 20000);
+			this.wrapper.removeChild(firstElem);
+
+			//let oldElement = firstElem.cloneNode(true);
+			//firstElem.classList.add('s200');
+			//this.removeBlock(firstElem);
+			//firstElem.classList.add('s200');
+			//firstElem.style.display = 'none';
+			//setTimeout(this.animateBlock(firstElem), 2000)
+			
+			
+			//wrapper.insertAdjacentHTML("beforeEnd", firstElem.outerHTML)
+
+			//firstElem.style.marginLeft = '';
+			
+			//console.dir(oldElement.firstElem);
 
 
 
+		}
+		removeBlock(elem){
+			this.wrapper.removeChild(elem);
 		}
 
 		getScrollWidth(){
