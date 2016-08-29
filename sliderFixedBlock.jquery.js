@@ -3,34 +3,33 @@
   var methods = {
      init : function( options ) {
 
-      // var settings = $.extend( {
+      var settings = $.extend( {
 
-      // }, options);
+      }, options);
 
        return this.each(function(){
 
-        console.log('test');
-         
-         // var $this = $(this),
-         //     data = $this.data('tooltip'),
-         //     tooltip = $('<div />', {
-         //       text : $this.attr('title')
-         //     });
-         
-         // // Если плагин ещё не проинициализирован
-         // if ( ! data ) {
-         
-         //   /*
-         //    * Тут выполняем инициализацию
-         //   */
+        var sliderWrapper = $(this);
+        var firstElem;
 
-         //   $(this).data('tooltip', {
-         //       target : $this,
-         //       tooltip : tooltip
-         //   });
-
-         // }
+        setInterval(function(){
+          firstElem = sliderWrapper.find('.sl-elements').first();
+          methods.slide(firstElem)
+        },3000)
+ 
        });
+     },
+     slide: function(elem){
+        
+        console.log(elem);
+        elem.animate({
+          marginLeft: '-220px'
+        }, 1000, function(){
+         var activeElem = $(this).detach();
+
+         activeElem.appendTo('.sl-wrapper').css({'margin-left': ''});
+
+      })
      }
   };
 

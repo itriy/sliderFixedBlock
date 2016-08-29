@@ -12,11 +12,8 @@
 	height: 100px;
 	background: blue;
 	margin: 0 10px;
-	/* position: absolute;
-	 */top: 0;
-	/* left: 0; */
-	transition: all 0.3s;
 	float: left;
+	overflow: hidden;
 }
 .s200 {
 	margin-left: -200px;
