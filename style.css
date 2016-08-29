@@ -11,7 +11,13 @@
 	width: 200px;
 	height: 100px;
 	background: blue;
-	margin: 0 10px;
+	margin-right: 20px;
+	border: 1px solid red;
 	float: left;
 	overflow: hidden;
+	position: relative;
+	z-index: 1;
+}
+.sl-elements-active {
+	z-index: 2;
 }

@@ -1,0 +1,1 @@
+# sliderFixedBlock.jquery
