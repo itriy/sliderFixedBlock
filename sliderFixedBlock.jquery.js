@@ -13,23 +13,27 @@
         var firstElem;
 
         setInterval(function(){
+
           firstElem = sliderWrapper.find('.sl-elements').first();
-          methods.slide(firstElem)
+          methods.slide(firstElem);
+
         },3000)
  
        });
      },
      slide: function(elem){
-        
-        console.log(elem);
+
         elem.animate({
           marginLeft: '-220px'
+
         }, 1000, function(){
+
          var activeElem = $(this).detach();
 
          activeElem.appendTo('.sl-wrapper').css({'margin-left': ''});
 
-      })
+      });
+
      }
   };
 
