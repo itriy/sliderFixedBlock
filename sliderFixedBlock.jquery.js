@@ -1,7 +1,7 @@
 (function( $ ){
 
   var methods = {
-     init : function( options ) {
+     init : function(options) {
 
       var settings = $.extend( {
 
@@ -11,32 +11,13 @@
 
         var sliderWrapper = $(this);
 
-        var firstElem, secondElem, activeElem;
-
-        setInterval(function(){
-
-          firstElem = sliderWrapper.find('.sl-elements').eq(0);
-          secondElem = sliderWrapper.find('.sl-elements').eq(1);
-
-          $('.sl-elements').removeClass('sl-elements-active');
-
-          if ( parseInt(firstElem.data('id')) < parseInt(secondElem.data('id')) ) {
-            activeElem = firstElem;
-          } else {
-            activeElem = secondElem;
-          }
-          firstElem.addClass('sl-elements-active');
-          methods.slide(activeElem);
-
-        },2000)
-
+        methods.detachElement(sliderWrapper)
         
        });
      },
 
-     slide: function(elem){
+     slideElement: function(elem){
         
-
         elem.animate({
           marginLeft: '-220px'
 
@@ -49,6 +30,33 @@
       });
 
      },
+
+     detachElement: function(sliderWrapper){
+
+      var firstElem, secondElem, activeElem;
+
+      setInterval(function(){
+
+        firstElem = sliderWrapper.find('.sl-elements').eq(0);
+        secondElem = sliderWrapper.find('.sl-elements').eq(1);
+
+        sliderWrapper.find('.sl-elements').removeClass('sl-elements-active');
+
+        if ( parseInt(firstElem.data('id')) < parseInt(secondElem.data('id')) ) {
+          activeElem = firstElem;
+        } else {
+          activeElem = secondElem;
+        }
+
+        firstElem.addClass('sl-elements-active');
+        methods.slideElement(activeElem);
+
+      },2000)
+     },
+
+     addElements: function(sliderWrapper){
+      sliderWrapper.find('.sl-wrapper').append(data)
+     }
 
   };
 
