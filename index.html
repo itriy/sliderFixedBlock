@@ -69,7 +69,7 @@
 			}
 		];
 	</script>
-	<script type="text/javascript" id="myData">
+	<script type="text/javascript" id="myData2">
 		var newData = [
 			{
 			    id: '1',
@@ -97,6 +97,8 @@
 
 		$.tmpl('myTmpl', data).appendTo('#slider .sl-wrapper');
 
+		$('#slider').slider();
+
 		setInterval(function(){
 
 			var newData2 = newData.filter(function(newId){
@@ -104,10 +106,11 @@
 			});
 	
 			$.tmpl('myTmpl', newData2).appendTo('#slider .sl-wrapper');
+			console.log('add')
 	
 		},10000);
 
-		$('#slider').slider();
+
 	</script>
 </body>
 </html>

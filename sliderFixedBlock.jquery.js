@@ -11,12 +11,12 @@
 
         var sliderWrapper = $(this);
 
-        methods.detachElement(sliderWrapper)
+        methods.selectElement(sliderWrapper)
         
        });
      },
 
-     detachElement: function(sliderWrapper){
+     selectElement: function(sliderWrapper){
 
       var firstElem, secondElem, activeElem, li ;
 
@@ -37,12 +37,12 @@
         }
 
         firstElem.addClass('active');
-        methods.slideElement(sliderWrapper, activeElem);
+        methods.moveElement(sliderWrapper, activeElem);
 
       },2000)
      },
 
-     slideElement: function(wrapper, elem){
+     moveElement: function(wrapper, elem){
 
         var ul = wrapper.find('ul');
         
@@ -50,7 +50,7 @@
           marginLeft: '-220px'
 
         }, 1000, function(){
-//console.log($(this))
+
          var activeElem = $(this).detach();
 
 
@@ -58,11 +58,7 @@
 
       });
 
-     },
-
-     // addElements: function(sliderWrapper){
-     //  sliderWrapper.find('.sl-wrapper').append(data)
-     // },
+     }
 
   };
 
