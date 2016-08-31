@@ -18,13 +18,12 @@
 
      detachElement: function(sliderWrapper){
 
-      var firstElem, secondElem, activeElem;
+      var firstElem, secondElem, activeElem, li ;
 
-      
 
       setInterval(function(){
-        
-        var li = sliderWrapper.find('li');
+
+        li = sliderWrapper.find('li');
 
         firstElem = li.eq(0);
         secondElem = li.eq(1);
@@ -51,8 +50,9 @@
           marginLeft: '-220px'
 
         }, 1000, function(){
-
+//console.log($(this))
          var activeElem = $(this).detach();
+
 
           activeElem.appendTo(ul).css({'margin-left': ''});
 
@@ -63,9 +63,6 @@
      // addElements: function(sliderWrapper){
      //  sliderWrapper.find('.sl-wrapper').append(data)
      // },
-     // template: function(element){
-     //  element.nodeName
-     // }
 
   };
 

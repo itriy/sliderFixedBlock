@@ -8,8 +8,7 @@
 <body>
 	<div id="slider">
 		<div class="sl-main">
-			<ul class="sl-wrapper">
-			</ul>
+			<ul class="sl-wrapper"></ul>
 		</div>
 	</div>
 
@@ -70,11 +69,43 @@
 			}
 		];
 	</script>
-
+	<script type="text/javascript" id="myData">
+		var newData = [
+			{
+			    id: '1',
+			    range: '20',
+			    post: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Consequuntur excepturi adipisci non animi libero, nesciunt modi quod neque dolores quam.'
+			},			{
+			    id: '16',
+			    range: '2001',
+			    post: 'Booo'
+			},			{
+			    id: '3',
+			    range: '50',
+			    post: '3'
+			},			{
+			    id: '15',
+			    range: '1320',
+			    post: 'Test'
+			}
+		];
+	</script>
 	<script>
 
 		$('#template').template('myTmpl');
+
+
 		$.tmpl('myTmpl', data).appendTo('#slider .sl-wrapper');
+
+		setInterval(function(){
+
+			var newData2 = newData.filter(function(newId){
+				return !$('.sl-elements[data-id='+newId.id+']').length
+			});
+	
+			$.tmpl('myTmpl', newData2).appendTo('#slider .sl-wrapper');
+	
+		},10000);
 
 		$('#slider').slider();
 	</script>
