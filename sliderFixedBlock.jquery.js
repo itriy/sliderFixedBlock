@@ -20,9 +20,11 @@
 
       var firstElem, secondElem, activeElem;
 
-      var li = sliderWrapper.find('li');
+      
 
       setInterval(function(){
+        
+        var li = sliderWrapper.find('li');
 
         firstElem = li.eq(0);
         secondElem = li.eq(1);
