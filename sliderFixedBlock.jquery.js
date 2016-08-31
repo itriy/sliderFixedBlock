@@ -54,9 +54,12 @@
       },2000)
      },
 
-     addElements: function(sliderWrapper){
-      sliderWrapper.find('.sl-wrapper').append(data)
-     }
+     // addElements: function(sliderWrapper){
+     //  sliderWrapper.find('.sl-wrapper').append(data)
+     // },
+     // template: function(element){
+     //  element.nodeName
+     // }
 
   };
 

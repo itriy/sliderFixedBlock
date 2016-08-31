@@ -6,29 +6,82 @@
 	<link rel="stylesheet" href="style.css">
 </head>
 <body>
-	<div id="slider">
-		<div class="sl-main">
-			<div class="sl-wrapper">
-				<div class="sl-elements" data-id="20">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Consequuntur excepturi adipisci non animi libero, nesciunt modi quod neque dolores quam.</div>
-				<div class="sl-elements" data-id="200">2</div>
-				<div class="sl-elements" data-id="50">3</div>
-				<div class="sl-elements" data-id="120">4</div>
-				<div class="sl-elements" data-id="2000">5</div>
-				<div class="sl-elements" data-id="2440">6</div>
-				<div class="sl-elements" data-id="2440">7</div>
-				<div class="sl-elements" data-id="452">8</div>
-				<div class="sl-elements" data-id="600">9</div>
-				<div class="sl-elements" data-id="3600">10</div>
-			</div>
-		</div>
+	<div id="slider"></div>
 
-	</div>
+
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+	<script type="text/javascript" src="http://ajax.microsoft.com/ajax/jquery.templates/beta1/jquery.tmpl.js"></script>
 	<script src="sliderFixedBlock.jquery.js"></script>
 
+
+	<script type="text/x-jquery-tmpl" id="template">
+	<div class="sl-main">
+		<div class="sl-wrapper">
+			{{each data}}
+
+	    	<div class="sl-elements sl-elements-${id}" data-id="${range}" 
+	    		style="{{if $item.data.range == '50'}} background: green; {{/if}}"
+	    	>${post}</div>
+
+	    	{{/each}}
+			
+		</div>
+	</div>
+
+	</script>
+
+	<script type="text/javascript" id="myData">
+		var data = [
+			{
+			    id: '1',
+			    range: '20',
+			    post: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Consequuntur excepturi adipisci non animi libero, nesciunt modi quod neque dolores quam.'
+			},			{
+			    id: '2',
+			    range: '200',
+			    post: '2'
+			},			{
+			    id: '3',
+			    range: '50',
+			    post: '3'
+			},			{
+			    id: '4',
+			    range: '120',
+			    post: '4'
+			},			{
+			    id: '5',
+			    range: '2000',
+			    post: '5'
+			},			{
+			    id: '6',
+			    range: '2440',
+			    post: '6'
+			},			{
+			    id: '7',
+			    range: '2440',
+			    post: '7'
+			},			{
+			    id: '8',
+			    range: '452',
+			    post: '8'
+			},			{
+			    id: '9',
+			    range: '600',
+			    post: '9'
+			},			{
+			    id: '10',
+			    range: '3600',
+			    post: '10'
+			}
+		];
+	</script>
+
 	<script>
+
+		$('#template').template('myTmpl');
+		$.tmpl('myTmpl').appendTo('#slider');
+
 		$('#slider').slider();
 	</script>
-	<!-- <script src="script.js"></script> -->
 </body>
 </html>
