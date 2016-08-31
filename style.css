@@ -1,3 +1,8 @@
+ul, li {
+	list-style: none;
+	padding: 0;
+	margin: 0;
+}
 .sl-main {
 	overflow: hidden;
 	width: 650px;
@@ -18,6 +23,6 @@
 	position: relative;
 	z-index: 1;
 }
-.sl-elements-active {
+.active {
 	z-index: 2;
 }

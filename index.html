@@ -6,7 +6,12 @@
 	<link rel="stylesheet" href="style.css">
 </head>
 <body>
-	<div id="slider"></div>
+	<div id="slider">
+		<div class="sl-main">
+			<ul class="sl-wrapper">
+			</ul>
+		</div>
+	</div>
 
 
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
@@ -15,17 +20,7 @@
 
 
 	<script type="text/x-jquery-tmpl" id="template">
-	<div class="sl-main">
-		<div class="sl-wrapper">
-			{{each data}}
-
-	    	<div class="sl-elements sl-elements-${id}" data-id="${range}" 
-	    		style="{{if $item.data.range == '50'}} background: green; {{/if}}"
-	    	>${post}</div>
-
-	    	{{/each}}
-			
-		</div>
+	    <li class="sl-elements" data-range="${range}" data-id="${id}">${post}</li>
 	</div>
 
 	</script>
@@ -79,7 +74,7 @@
 	<script>
 
 		$('#template').template('myTmpl');
-		$.tmpl('myTmpl').appendTo('#slider');
+		$.tmpl('myTmpl', data).appendTo('#slider .sl-wrapper');
 
 		$('#slider').slider();
 	</script>
