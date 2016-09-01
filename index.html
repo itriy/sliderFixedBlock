@@ -19,7 +19,7 @@
 
 
 	<script type="text/x-jquery-tmpl" id="template">
-	    <li class="sl-elements" data-range="${range}" data-id="${id}">${post}</li>
+	    <li class="sl-elements" data-range="${range}" data-id="${id}" data-timer="${timer}">${post}</li>
 	</script>
 
 	<script type="text/javascript" id="myData">
@@ -27,43 +27,53 @@
 			{
 			    id: '1',
 			    range: '20',
-			    post: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Consequuntur excepturi adipisci non animi libero, nesciunt modi quod neque dolores quam.'
+			    post: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Consequuntur excepturi adipisci non animi libero, nesciunt modi quod neque dolores quam.',
+			    timer: '1472717387000'
 			},			{
 			    id: '2',
 			    range: '200',
-			    post: '2'
+			    post: '2',
+			    timer: '1472718639000'
 			},			{
 			    id: '3',
 			    range: '50',
-			    post: '3'
+			    post: '3',
+			    timer: '1472720298000'
 			},			{
 			    id: '4',
 			    range: '120',
-			    post: '4'
+			    post: '4',
+			    timer: '1472720298000'
 			},			{
 			    id: '5',
 			    range: '2000',
-			    post: '5'
+			    post: '5',
+			    timer: '1472720298000'
 			},			{
 			    id: '6',
 			    range: '2440',
-			    post: '6'
+			    post: '6',
+			    timer: '1472720298000'
 			},			{
 			    id: '7',
 			    range: '2440',
-			    post: '7'
+			    post: '7',
+			    timer: '1472720298000'
 			},			{
 			    id: '8',
 			    range: '452',
-			    post: '8'
+			    post: '8',
+			    timer: '1472720298000'
 			},			{
 			    id: '9',
 			    range: '600',
-			    post: '9'
+			    post: '9',
+			    timer: '1472720298000'
 			},			{
 			    id: '10',
 			    range: '3600',
-			    post: '10'
+			    post: '10',
+			    timer: '1472720298000'
 			}
 		];
 	</script>
@@ -73,19 +83,23 @@
 			{
 			    id: '1',
 			    range: '20',
-			    post: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Consequuntur excepturi adipisci non animi libero, nesciunt modi quod neque dolores quam.'
+			    post: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Consequuntur excepturi adipisci non animi libero, nesciunt modi quod neque dolores quam.',
+			    timer: '1472717387000'
 			},			{
 			    id: '16',
 			    range: '2001',
-			    post: 'Booo'
+			    post: 'Booo',
+			    timer: '1472717387000'
 			},			{
 			    id: '3',
 			    range: '50',
-			    post: '3'
+			    post: '3',
+			    timer: '1472717387000'
 			},			{
 			    id: '15',
 			    range: '91320',
-			    post: 'Test'
+			    post: 'Test',
+			    timer: '1472721331000'
 			}
 		];
 	</script>
@@ -102,7 +116,8 @@
 		$('#slider').slider({
 			elemWidth: elemWidth,
 			animateDuration: 1000,
-			animateInterval: 2000
+			animateInterval: 2000,
+			elemLife: 1800000
 		});
 
 		setInterval(function(){

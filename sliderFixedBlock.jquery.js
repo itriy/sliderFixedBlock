@@ -6,7 +6,8 @@
       var settings = $.extend( {
         elemWidth: 220,
         animateDuration: 1000,
-        animateInterval: 2000
+        animateInterval: 2000,
+        elemLife: 60000
       }, options);
 
       
@@ -27,6 +28,8 @@
 
       setInterval(function(){
 
+        var elemDelete = false;
+
         li = sliderWrapper.find('li');
 
         firstElem = li.eq(0);
@@ -34,19 +37,24 @@
 
         li.removeClass('active');
 
-        if ( parseInt(firstElem.data('range')) < parseInt(secondElem.data('range')) ) {
+        if(( parseInt(firstElem.data('timer')) + settings.elemLife ) < Date.parse(new Date())) {
+          //elemDelete = true;
+        }
+
+        if ( parseInt(firstElem.data('range')) < parseInt(secondElem.data('range')) || elemDelete == true) {
           activeElem = firstElem;
         } else {
           activeElem = secondElem;
         }
 
         firstElem.addClass('active');
-        methods.moveElement(sliderWrapper, activeElem, settings);
+        methods.moveElement(sliderWrapper, activeElem, settings, elemDelete);
 
       }, settings.animateInterval)
+
      },
 
-     moveElement: function(wrapper, elem, settings){
+     moveElement: function(wrapper, elem, settings, elemDelete){
 
         var ul = wrapper.find('ul');
         
@@ -55,9 +63,11 @@
 
         }, settings.animateDuration, function(){
 
-         var activeElem = $(this).detach();
+          if(elemDelete == true){
+             return $(this).remove();
+          }
 
-
+          activeElem = $(this).detach();
           activeElem.appendTo(ul).css({'margin-left': ''});
 
       });
