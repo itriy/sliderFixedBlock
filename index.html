@@ -85,7 +85,7 @@
 			    post: '3'
 			},			{
 			    id: '15',
-			    range: '1320',
+			    range: '91320',
 			    post: 'Test'
 			}
 		];
@@ -97,7 +97,13 @@
 
 		$.tmpl('myTmpl', data).appendTo('#slider .sl-wrapper');
 
-		$('#slider').slider();
+		var elemWidth = $('.sl-elements').outerWidth( true )
+
+		$('#slider').slider({
+			elemWidth: elemWidth,
+			animateDuration: 1000,
+			animateInterval: 2000
+		});
 
 		setInterval(function(){
 

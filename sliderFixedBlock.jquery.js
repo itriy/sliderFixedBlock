@@ -4,19 +4,23 @@
      init : function(options) {
 
       var settings = $.extend( {
-
+        elemWidth: 220,
+        animateDuration: 1000,
+        animateInterval: 2000
       }, options);
+
+      
 
        return this.each(function(){
 
         var sliderWrapper = $(this);
 
-        methods.selectElement(sliderWrapper)
+        methods.selectElement(sliderWrapper, settings)
         
        });
      },
 
-     selectElement: function(sliderWrapper){
+     selectElement: function(sliderWrapper, settings){
 
       var firstElem, secondElem, activeElem, li ;
 
@@ -37,19 +41,19 @@
         }
 
         firstElem.addClass('active');
-        methods.moveElement(sliderWrapper, activeElem);
+        methods.moveElement(sliderWrapper, activeElem, settings);
 
-      },2000)
+      }, settings.animateInterval)
      },
 
-     moveElement: function(wrapper, elem){
+     moveElement: function(wrapper, elem, settings){
 
         var ul = wrapper.find('ul');
         
         elem.animate({
-          marginLeft: '-220px'
+          marginLeft: '-' + settings.elemWidth + 'px'
 
-        }, 1000, function(){
+        }, settings.animateDuration, function(){
 
          var activeElem = $(this).detach();
 
