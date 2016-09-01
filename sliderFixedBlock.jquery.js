@@ -7,7 +7,8 @@
         elemWidth: 220,
         animateDuration: 1000,
         animateInterval: 2000,
-        elemLife: 60000
+        elemLife: 60000,
+        minRange: 0
       }, options);
 
       
@@ -41,7 +42,11 @@
           //elemDelete = true;
         }
 
-        if ( parseInt(firstElem.data('range')) < parseInt(secondElem.data('range')) || elemDelete == true) {
+
+        if ( elemDelete == true
+             || parseInt(firstElem.data('range')) <= settings.minRange
+             || parseInt(firstElem.data('range')) < parseInt(secondElem.data('range')) ) 
+        {
           activeElem = firstElem;
         } else {
           activeElem = secondElem;
