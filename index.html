@@ -108,6 +108,30 @@
 
 		$('#template').template('myTmpl');
 
+		function sortData(data){
+			
+			var maxData = 0,
+				maxIndex = 0
+
+			data.forEach(function(item, i){
+
+				if(parseInt(item.range, 10) > maxData){
+					maxData = parseInt(item.range, 10)
+					maxIndex = i;
+				}
+			})
+
+
+			var maxElem = data.splice(maxIndex,1);
+
+			console.log(maxElem)
+
+			$.tmpl('myTmpl', maxElem).appendTo('#slider .sl-wrapper');
+		}
+
+		sortData(data)
+
+		console.log(data)
 
 		$.tmpl('myTmpl', data).appendTo('#slider .sl-wrapper');
 
