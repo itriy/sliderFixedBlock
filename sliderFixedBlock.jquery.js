@@ -38,8 +38,8 @@
 
         li.removeClass('active');
 
-        if(( parseInt(firstElem.data('timer')) + settings.elemLife ) < Date.parse(new Date())) {
-          //elemDelete = true;
+        if(( parseInt(firstElem.data('life')) + settings.elemLife ) < Date.parse(new Date())) {
+          elemDelete = true;
         }
 
 
@@ -49,10 +49,16 @@
         {
           activeElem = firstElem;
         } else {
+
           activeElem = secondElem;
         }
 
         firstElem.addClass('active');
+
+        if(!firstElem.attr("data-life")){
+          firstElem.attr("data-life", Date.parse(new Date()));
+        }
+
         methods.moveElement(sliderWrapper, activeElem, settings, elemDelete);
 
       }, settings.animateInterval)
